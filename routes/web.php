@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductOrderController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Article;
 use App\Http\Controllers\ArticleController;
+use App\Models\Delivery;
+use App\Http\Controllers\DeliveryController;
 
 Route::get('/', function () {
     // Take the 3 newest posts
@@ -13,7 +15,10 @@ Route::get('/', function () {
     return view('welcome', compact('latestArticles'));
 })->name('home');
 
+Route::get('/delivery', [DeliveryController::class, 'index'])->name('delivery.index');
+
 // Resource routes of the base pages. For more info on Resource Routes
 Route::resource('/articles', ArticleController::class);
 Route::resource('/products', ProductController::class);
 Route::resource('/orders', ProductOrderController::class);
+Route::resource('/delivery', DeliveryController::class);

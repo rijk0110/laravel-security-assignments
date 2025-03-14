@@ -14,6 +14,7 @@ What's all the bells and whistles this project can perform?
 ## Authors
 
 * **Daan de Waard** - *Initial work* - [dwaard](https://github.com/dwaard)
+* **Jim Rijkse** - *Exam maker* - [rijk0110](https://github.com/rijk0110)
 
 See also the list of [contributors](https://github.com/HZ-HBO-ICT/laravel-skeleton-app/graphs/contributors) who
 participated in this project.
