@@ -10,7 +10,7 @@ class DeliveryController extends Controller
     // Index: Lijst van alle deliveries
     public function index()
     {
-        $delivery = Delivery::paginate(15);
+        $delivery = Delivery::paginate(20);
         return view('delivery.index', compact('delivery'));
     }
 

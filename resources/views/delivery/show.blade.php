@@ -7,6 +7,13 @@
         <li class="list-group-item"><strong>Naam:</strong> {{ $delivery->name }}</li>
         <li class="list-group-item"><strong>Status:</strong> {{ $delivery->status }}</li>
         <li class="list-group-item"><strong>Order Deadline</strong> {{ $delivery->order_deadline }}</li>
+        <form action="{{ route('delivery.destroy', $delivery) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Weet je zeker dat je deze delivery wilt verwijderen?')">
+                            Verwijderen
+                        </button>
+                    </form>
     </ul>
 
     <a href="{{ route('delivery.index') }}" class="btn btn-secondary mt-3">Terug</a>

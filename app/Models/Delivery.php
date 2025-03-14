@@ -12,3 +12,4 @@ class Delivery extends Model
     protected $fillable = ['name', 'status', 'order_deadline'];
     // Zorgt ervoor dat deze velden mass-assigned kunnen worden
 }
+

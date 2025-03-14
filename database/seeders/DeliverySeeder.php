@@ -13,6 +13,6 @@ class DeliverySeeder extends Seeder
      */
     public function run(): void
     {
-        Delivery::factory(25)->create();
+        Delivery::factory(15)->create();
     }
 }

@@ -22,6 +22,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">Opslaan</button>
+        <a href="{{ route('delivery.index') }}" class="btn btn-secondary mt-3">Terug</a>
     </form>
 </div>
 </x-main>
