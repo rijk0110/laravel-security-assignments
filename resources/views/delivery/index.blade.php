@@ -8,7 +8,7 @@
 
     <a href="{{ route('delivery.create') }}" class="btn btn-primary mb-3">Nieuwe Delivery toevoegen</a>
 
-    <table class="table table-striped">
+    <table class="table is-fullwidth">
         <thead>
             <tr>
                 <th>ID</th>
