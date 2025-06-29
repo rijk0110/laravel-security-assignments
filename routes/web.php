@@ -6,6 +6,10 @@ use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DeliveryController;
 use App\Models\Article;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Http\Request;
+
 
 // Publieke homepagina met 3 nieuwste artikelen
 Route::get('/', function () {
