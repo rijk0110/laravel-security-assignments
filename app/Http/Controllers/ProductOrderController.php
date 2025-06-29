@@ -8,12 +8,9 @@ use Illuminate\Http\Request;
 
 class ProductOrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $orders = ProductOrder::all();
+        $orders = ProductOrder::where('user_id', auth()->id())->get();
         return view('orders.index', compact('orders'));
     }
 
@@ -30,15 +27,15 @@ class ProductOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order->user_id = auth()->id();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ProductOrder $productOrder)
+    public function show(ProductOrder $order)
     {
-        //
+        if ($order->user_id !== auth()->id()) {
+         abort(403);
+        }
+        return view('orders.show', compact('order'));
     }
 
     /**
