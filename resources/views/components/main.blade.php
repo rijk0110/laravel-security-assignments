@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+            <!-- Add this in the <head> section -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <title>DutchGroceries</title>
 
         {{-- Compiled assets --}}
@@ -41,9 +42,9 @@
                            class="navbar-item {{ request()->route()->getName() === 'orders.index' ? "is-active" : "" }}">
                             Orders
                         </a>
-                        <a href="{{ route('delivery.index') }}"
-                           class="navbar-item {{ request()->route()->getName() === 'delivery.index' ? "is-active" : "" }}">
-                            Deliverys
+                        <a href="{{ route('deliveries.index') }}"
+                           class="navbar-item {{ request()->route()->getName() === 'deliveries.index' ? "is-active" : "" }}">
+                            Deliveries
                         </a>
                     </div>
                 </div>

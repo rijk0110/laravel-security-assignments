@@ -1,29 +1,41 @@
-<x-main>
-<div class="container">
-    <h1>Nieuwe Delivery Toevoegen</h1>
+@extends('layouts.app')
 
-    <form action="{{ route('delivery.store') }}" method="POST">
-        @csrf
-        <div class="mb-3">
-            <label class="form-label">Naam</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
-            @error('name') <div class="text-danger">{{ $message }}</div> @enderror
-        </div>
+@section('content')
+    <div class="container">
+        <h1>Nieuwe delivery aanmaken</h1>
 
-        <div class="mb-3">
-            <label class="form-label">Status</label>
-            <textarea name="status" class="form-control">{{ old('status') }}</textarea>
-            @error('status') <div class="text-danger">{{ $message }}</div> @enderror
-        </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-        <div class="mb-3">
-            <label class="form-label">Order Deadline</label>
-            <input type="text" name="order_deadline" class="form-control" value="{{ old('order_deadline') }}">
-            @error('order_deadline') <div class="text-danger">{{ $message }}</div> @enderror
-        </div>
+        <form action="{{ route('deliveries.store') }}" method="POST">
+            @csrf
 
-        <button type="submit" class="btn btn-success">Opslaan</button>
-        <a href="{{ route('delivery.index') }}" class="btn btn-secondary mt-3">Terug</a>
-    </form>
-</div>
-</x-main>
+            <div class="mb-3">
+                <label for="name" class="form-label">Naam</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select name="status" id="status" class="form-control" required>
+                    <option value="open">Open</option>
+                    <option value="closed">Gesloten</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="order_deadline" class="form-label">Besteldeadline</label>
+                <input type="date" name="order_deadline" id="order_deadline" class="form-control" value="{{ old('order_deadline') }}" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Opslaan</button>
+        </form>
+    </div>
+@endsection
